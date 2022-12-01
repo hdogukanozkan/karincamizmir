@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Component/Header.jsx";
+import Title from "./Component/Title.jsx";
+import Footer from "./Component/Footer.jsx";
+import Bloglar from "./Component/Bloglar.jsx";
+import Accordions from "./Component/Accordions.jsx";
+import Yeniyazilar from "./Component/Yeniyazilar.jsx";
+import { Route, Routes } from "react-router-dom";
+import "./app.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <Title />
+              <Yeniyazilar />
+              <Accordions />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <>
+              <Header />
+              <Bloglar />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
 }
